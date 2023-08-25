@@ -18,10 +18,12 @@ main > .container {
 }
 
 .container-carousel {
-  width: 700px;
+  width: 100%;
   height: 500px;
 
   position: relative;
+
+  display: flex;
 }
 
 .mini-carousel {
@@ -63,16 +65,16 @@ main > .container {
 
 /* Control Buttons */
 
-.btn-carousel-left {
+.btn-carousel-top {
   display: inline-block;
   position: absolute;
-  left: 0;
-  top: 50%;
+  right: 50%;
+  top: 0;
 }
 
-.btn-carousel-right {
+.btn-carousel-bottom {
   display: inline-block;
   position: absolute;
-  right: 0;
-  top: 50%;
+  right: 50%;
+  bottom: 0;
 }

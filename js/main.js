@@ -1,8 +1,8 @@
 // | Recupero dati
 
 const slides = document.getElementById("img-carousel");
-const btnLeft = document.getElementById("btn-left");
-const btnRight = document.getElementById("btn-right");
+const btnLeft = document.getElementById("btn-top");
+const btnRight = document.getElementById("btn-bottom");
 const miniSlide = document.getElementById("img-mini-carousel");
 
 const images = [
@@ -35,13 +35,13 @@ const images = [
 console.log(images[3].image);
 
 let imageNumber = 0;
-printSlide(imageNumber, images);
 
 for (const image of images) {
   miniSlide.innerHTML += `
   <img src="${image.image}" alt="" />
   `;
 }
+printSlide(imageNumber, images);
 
 btnRight.addEventListener("click", function () {
   imageNumber++;
