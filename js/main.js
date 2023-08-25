@@ -34,44 +34,38 @@ const images = [
 console.log(images[3].image);
 
 let imageNumber = 0;
-let slideURL = images[imageNumber].image;
-slides.innerHTML = `
-  <img src="${slideURL}" alt="" />
-`;
+printSlide(imageNumber, images);
 
 btnRight.addEventListener("click", function () {
   imageNumber++;
   console.log(imageNumber);
   if (imageNumber < images.length) {
-    slideURL = images[imageNumber].image;
-    slides.innerHTML = `
-    <img src="${slideURL}" alt="" />
-    `;
+    printSlide(imageNumber, images);
   } else if (imageNumber > images.length - 1) {
     imageNumber = 0;
-    slideURL = images[imageNumber].image;
-
-    slides.innerHTML = `
-    <img src="${slideURL}" alt="" />
-    `;
+    printSlide(imageNumber, images);
   }
 });
 
 btnLeft.addEventListener("click", function () {
   imageNumber--;
   if (imageNumber < images.length - 1 && imageNumber > -1) {
-    console.log(imageNumber);
-    slideURL = images[imageNumber].image;
-    slides.innerHTML = `
-    <img src="${slideURL}" alt="" />
-    `;
+    printSlide(imageNumber, images);
   } else if (imageNumber <= 0) {
     imageNumber = images.length - 1;
-    console.log(imageNumber);
-    slideURL = images[imageNumber].image;
-
-    slides.innerHTML = `
-    <img src="${slideURL}" alt="" />
-    `;
+    printSlide(imageNumber, images);
   }
 });
+
+// | Funzione stampa slide
+function printSlide(indexArray, array) {
+  slideURL = array[indexArray].image;
+  slideTitle = array[indexArray].title;
+  slideText = array[indexArray].text;
+
+  slides.innerHTML = `
+    <img src="${slideURL}" alt="" />
+    <h2>${slideTitle}</h2>
+    <p>${slideText}</p>
+    `;
+}
