@@ -3,6 +3,7 @@
 const slides = document.getElementById("img-carousel");
 const btnLeft = document.getElementById("btn-left");
 const btnRight = document.getElementById("btn-right");
+const miniSlide = document.getElementById("img-mini-carousel");
 
 const images = [
   {
@@ -36,6 +37,12 @@ console.log(images[3].image);
 let imageNumber = 0;
 printSlide(imageNumber, images);
 
+for (const image of images) {
+  miniSlide.innerHTML += `
+  <img src="${image.image}" alt="" />
+  `;
+}
+
 btnRight.addEventListener("click", function () {
   imageNumber++;
   console.log(imageNumber);
@@ -65,7 +72,9 @@ function printSlide(indexArray, array) {
 
   slides.innerHTML = `
     <img src="${slideURL}" alt="" />
+    <div class="bottom-carousel">
     <h2>${slideTitle}</h2>
     <p>${slideText}</p>
+    </div>
     `;
 }
